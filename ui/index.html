@@ -1,11 +1,11 @@
 <html style="overflow-y: hidden;">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="styles/police.css">
     <style>
         body {
-            display: none;
             user-select: none;
         }
     </style>
@@ -13,18 +13,16 @@
 <body>
     <div id="container">
         <div v-bind:class="getClass('content')">
-            <div v-bind:class="getClass('line')" style="top: 10%;"></div>
-            <img v-if="officer.department == 'police'" src="badges/police.png" v-bind:class="getClass('badge')" >
-            <img src="footer.png" id="banner" >
-            
-            <p v-if="officer.department == 'police'" style="font-family: 'Georgia'; font-style: italic; font-size: 20pt; text-align: center;">Los Santos Police Department</p>
-            <p style="position: fixed; left: 17%; top: 5.5%">Welcome, {{ officer.rank }}{{ officer.name }}.</p>
-            <button type="button" v-on:click="closeMDT()" style="position: fixed; right: 10%; top: 5.5%">LOGOUT</button>
-
-            <div style="position: fixed; left: 16%; top: 10.5%;">
+            <p style="font-family: 'Montserrat'; font-style: sans-serif; font-size: 20pt; text-align: center;">San Andreas State Database</p>
+            <p style="text-align: center;">Welcome, {{ officer.rank }}{{ officer.name }}.</p>
+            <div class="wrapper">
+            <div class="sidebar"style="position: fixed; left: 0%; top: 0%; bottom: 3%;">
+                <img src="badges/police.png" width="120" height="120" style="position: relative; left: 12%; top: 1.2%;">
+                <h2></h2>
+                <button type="button" v-on:click="closeMDT()" style="position: fixed; left: 2.5%; bottom: 3%">LOGOUT</button>
                 <ul>
                     <li v-on:click="changePage('Home')" id="home" >Home</li>
-                    <li v-on:click="changePage('Search Offenders')" id="search-offenders" >Search Persons</li>
+                    <li v-on:click="changePage('Search Offenders')" id="search-offenders" >Search Citizen</li>
                     <li v-on:click="changePage('Search Vehicles')" id="search-vehicles" >Search Vehicles</li>
                     <li v-on:click="changePage('Search Reports')" id="search-reports" >Search Reports</li>
                     <li v-on:click="changePage('Submit Report')" id="submit-report" >Create Report</li>
@@ -38,7 +36,7 @@
 
                     <h2 class="page-title">HOME</h2>
         
-                    <div class="left-side" style="width: 400px; position: absolute; float: unset;">
+                    <div class="left-side" style="width: 400px; position: absolute; float: unset; left: 5%;">
                         <h3>RECENT REPORTS</h3>
                         <br />
                         <h4 v-if="homepage.reports == false"> ... </h4>
@@ -49,7 +47,7 @@
                         </span>
                     </div>
 
-                    <div class="left-side" style="width: 400px; position: absolute; top: 55%;">
+                    <div class="left-side" style="width: 400px; position: absolute; top: 55%; left: 5%;">
                         <h3>PERSON SEARCHES</h3>
                         <br />
                         <h4 v-if="recent_searches.person.length == 0"> ... </h4>
@@ -59,7 +57,7 @@
                         </span>
                     </div>
 
-                    <div class="right-side" style="width: 400px; position: absolute; float: unset;">
+                    <div class="right-side" style="width: 400px; position: absolute; float: unset; left: 75%;">
                         <h3>RECENT WARRANTS</h3>
                         <br />
                         <h4 v-if="homepage.warrants == false"> ... </h4>
@@ -70,7 +68,7 @@
                         </span>
                     </div>
 
-                    <div class="right-side" style="width: 400px; position: absolute; top: 55%;">
+                    <div class="right-side" style="width: 400px; position: absolute; top: 55%; left: 75%;">
                         <h3>VEHICLE SEARCHES</h3>
                         <br />
                         <h4 v-if="recent_searches.vehicle.length == 0"> ... </h4>
@@ -94,7 +92,7 @@
                     
                     <br />
 
-                    <div class="left-side" style="max-height: 450px; width: 500px;">
+                    <div class="left-side" style="max-height: 450px; width: 500px">
                         <h3>DATE</h3>
                         <h4 v-if="report_selected.date"> {{ report_selected.date }} </h4>
                         <h4 v-else-if="report_selected.date == null"> ... </h4>
@@ -613,11 +611,8 @@
                 <div id="notification" v-bind:class="getClass('notification')">
                     <h4>{{notify}}</h4>
                 </div>
-                <p style="position: fixed; left: 2%; bottom: 0%; padding: 20px;" v-on:click="showNotification('Made by distritic (github.com/distritic)')">*</p>
+                <p style="position: fixed; left: 2%; bottom: 0%; padding: 20px;" v-on:click="showNotification('Made by Wrex/Distritic')"></p>
             </main>
-            
-            <p v-if="officer.department == 'police'" style="font-family: 'Georgia'; font-style: italic; font-size: 20pt; position: fixed; bottom: 1%; right: 5.5%; direction: rtl;">Obey & Survive</p>
-            <div v-bind:class="getClass('line2')" style="bottom: 10%"></div>
         </div>
     </div>
 
