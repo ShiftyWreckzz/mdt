@@ -2,6 +2,11 @@
 
 ![image](https://user-images.githubusercontent.com/57848836/124848636-e06d9880-df62-11eb-88aa-c0e211b039e3.png)
 
+
+# IMPORTANT
+
+THIS IS FOR THE LATEST VERSION OF QBCORE! It does not support the steam verison!
+
 # mdt
 A police Mobile Data Terminal system designed for use on the FiveM platform.
 
